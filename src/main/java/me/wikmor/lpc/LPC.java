@@ -55,7 +55,7 @@ public final class LPC extends JavaPlugin implements Listener {
 		return new ArrayList<>();
 	}
 
-	@EventHandler(priority = EventPriority.HIGHEST)
+	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void onChat(final AsyncPlayerChatEvent event) {
 		final String message = event.getMessage();
 		final Player player = event.getPlayer();
