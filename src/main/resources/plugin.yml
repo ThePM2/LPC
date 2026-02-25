@@ -8,6 +8,21 @@ depend: [LuckPerms]
 softdepend: [PlaceholderAPI]
 commands:
   lpc:
-    description: Reload the configuration.
-    permission: lpc.reload
-    usage: "Usage: /lpc reload"
+    description: LPC commands.
+    usage: "Usage: /lpc <reload|clear|debug>"
+permissions:
+  lpc.reload:
+    description: Allows use of /lpc reload
+    default: op
+  lpc.clearchat:
+    description: Allows use of /lpc clear
+    default: op
+  lpc.debug:
+    description: Allows use of /lpc debug
+    default: op
+  lpc.colorcodes:
+    description: Allows color codes in chat messages
+    default: false
+  lpc.rgbcodes:
+    description: Allows RGB/hex color codes in chat messages
+    default: false

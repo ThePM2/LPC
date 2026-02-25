@@ -6,11 +6,11 @@
 	<artifactId>lpc</artifactId>
 	<name>LPC</name>
 	<description>A chat formatting plugin for LuckPerms.</description>
-	<version>3.6.2</version>
+	<version>3.7.0</version>
 	<packaging>jar</packaging>
 	
 	<properties>
-		<author>wikmor</author>
+		<author>PM2</author>
 		<main.class>me.wikmor.lpc.LPC</main.class>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,7 +21,11 @@
         	<id>spigot-repo</id>
         	<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     	</repository>
-        <repository>
+		<repository>
+			<id>papermc</id>
+			<url>https://repo.papermc.io/repository/maven-public/</url>
+		</repository>
+		<repository>
             <id>placeholderapi</id>
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
@@ -38,10 +42,17 @@
     	<dependency>
            	<groupId>org.spigotmc</groupId>
            	<artifactId>spigot-api</artifactId>
-           	<version>1.21.5-R0.1-SNAPSHOT</version>
+           	<version>1.21.11-R0.1-SNAPSHOT</version>
         	<scope>provided</scope>
     	</dependency>
-        <dependency>
+		<dependency>
+			<groupId>io.papermc.paper</groupId>
+			<artifactId>paper-api</artifactId>
+			<version>1.21.11-R0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
             <groupId>net.luckperms</groupId>
             <artifactId>api</artifactId>
             <version>5.4</version>
