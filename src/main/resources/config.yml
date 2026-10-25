@@ -13,6 +13,9 @@
 # {username-color} - the player's or the group's username color
 # {message-color} - the player's or the group's message color
 #
+# Sprites (Paper, Minecraft 1.21.9+): <sprite:"atlas":"sprite">
+# Example: <sprite:"minecraft:items":"minecraft:item/coal">
+#
 # Color codes: Use & for colors (&a, &b, etc.) and &#rrggbb for hex colors.
 # Permissions: lpc.reload, lpc.clearchat, lpc.debug, lpc.colorcodes, lpc.rgbcodes
 #
