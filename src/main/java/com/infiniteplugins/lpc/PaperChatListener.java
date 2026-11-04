@@ -36,13 +36,7 @@ final class PaperChatListener implements Listener {
 	}
 
 	private Component formatMessage(final String format, final Component message) {
-		final String[] parts = format.split("\\{message}", -1);
-		Component component = LEGACY.deserialize(parts[0]);
-
-		for (int i = 1; i < parts.length; i++) {
-			component = component.append(message).append(LEGACY.deserialize(parts[i]));
-		}
-
-		return component;
+		// Parse the complete legacy string so the formatting before {message} carries into the message.
+		return LEGACY.deserialize(format.replace("{message}", LEGACY.serialize(message)));
 	}
 }
