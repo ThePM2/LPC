@@ -23,6 +23,7 @@ public final class LPC extends JavaPlugin implements Listener {
 
 	private static final Pattern HEX_PATTERN = Pattern.compile("&#([A-Fa-f0-9]{6})");
 	private static final Pattern BUKKIT_HEX_PATTERN = Pattern.compile("&x(&[A-Fa-f0-9]){6}");
+	private static final Pattern LEGACY_CODE_PATTERN = Pattern.compile("(?i)" + ChatColor.COLOR_CHAR + "(?=[0-9a-fk-orx])");
 
 	private LuckPerms luckPerms;
 
@@ -169,14 +170,15 @@ public final class LPC extends JavaPlugin implements Listener {
 	}
 
 	String processMessage(final Player player, final String message) {
+		final String normalized = LEGACY_CODE_PATTERN.matcher(message).replaceAll("&");
 		if (player.hasPermission("lpc.colorcodes") && player.hasPermission("lpc.rgbcodes")) {
-			return colorize(translateHexColorCodes(message));
+			return colorize(translateHexColorCodes(normalized));
 		} else if (player.hasPermission("lpc.colorcodes")) {
-			return colorize(stripHexCodes(message));
+			return colorize(stripHexCodes(normalized));
 		} else if (player.hasPermission("lpc.rgbcodes")) {
-			return stripColorCodes(translateHexColorCodes(message));
+			return stripColorCodes(translateHexColorCodes(normalized));
 		} else {
-			return stripColorCodes(stripHexCodes(message));
+			return stripColorCodes(stripHexCodes(normalized));
 		}
 	}
 
